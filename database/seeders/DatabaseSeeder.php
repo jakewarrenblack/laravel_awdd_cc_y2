@@ -13,6 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // we use the call method to execute our seeders
+        // the documentation shows this in an array,
+        // we just do the two separately
+        $this->call(RoleSeeder::class);
+        $this->call(UserSeeder::class);
+
+        // the command to run these seeders:
+        // ************************
+        // php artisan db:seed 
+        // ************************
+        // - (runs this class)
     }
 }

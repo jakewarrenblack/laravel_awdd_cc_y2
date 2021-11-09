@@ -62,6 +62,12 @@ class User extends Authenticatable
         // but a role also belongs to many users!
         // so we define this too with a second call to belongsToMany
         // we do the other one inside Role
-        return $this->belongsToMany('App\Models\Role');
+
+        // note that here we specify the name of the joining table
+        // this is because Laravel will guess as to it's name and name it by default
+        // but the default naming convention creates these names in alphabetical order
+        // so in our case Laravel will call the joining table 'role_user'
+        // even though our table is actually called 'user_role'
+        return $this->belongsToMany('App\Models\Role', 'user_role');
     }
 }
