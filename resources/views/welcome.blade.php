@@ -15,12 +15,22 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
-            };
+            }
+            .nav{
+                display:flex;
+                flex-direction:row;
+                list-style:none;
+                width: 25%;
+                justify-content:space-between;
+            }
+            .nav li a{
+                color: black;
+            }
         </style>
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            <ul>
+            <ul class="nav">
                 <li>
                     <a href="/login">Login</a>
                 </li>
