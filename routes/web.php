@@ -47,3 +47,11 @@ Route::get('/register', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
+Auth::routes();
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Direct our controllers to their corresponding views
+Route::get('/admin/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
+Route::get('/user/home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('user.home');
