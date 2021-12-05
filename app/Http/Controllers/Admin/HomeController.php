@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 
 class HomeController extends Controller
@@ -19,6 +20,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('role:admin');        
     }
 
     /**
@@ -30,7 +32,14 @@ class HomeController extends Controller
     {
         // note that if we just leave this as 'home' it will take us to the home.blade.php in the root of the views folder
         // we want the admin view, so we use admin.home
-        return view('admin.home');
+        //return view('admin.home');
+
+        // Get the currently authenticated user
+        $user = Auth::user();
+
+        // Make sure the user's role is 'admin'
+        $user->authorizeRoles("admin");
+        return view("admin.home");
     }
 }
 

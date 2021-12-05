@@ -79,14 +79,10 @@ class User extends Authenticatable
         // the authorizeRoles function will handle it
 
         // 1. check if the value passed in is an array
-        if(is_array($roles)){
-            // if it is, run the hasAnyRole function which takes an array, and return it's value (which will be true or false)
-            return $this->hasAnyRole($roles) ||
-                // if hasAnyRole returns false, run this part, as in this case the user's role is invalid and this isn't allowed
-                abort(401, 'This action is unauthorised!');
+        if(is_array($roles)){            
+            return $this->hasAnyRole($roles);
         }
-        return $this->hasRole($roles) ||
-            abort(401, 'This action is unauthorised!');
+        return $this->hasRole($roles);
     }
 
     // we will pass an array into this function

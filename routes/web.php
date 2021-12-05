@@ -18,35 +18,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/login', [LoginController::class, 'login']);
-
-// this is an alternative way of doing the above ^^
-// in this case we don't have to import anything, it's done inline
-// --------------------------------------------------------------- //
-// Route::get('about', 'App\Http\Controllers\AboutController@about');
-
 Route::get('/about', [LoginController::class, 'about']);
 Route::get('/register', [LoginController::class, 'register']);
 Route::get('/profile', [LoginController::class, 'profile']);
 
 
 
-Route::get('/about', function () {
-    return view('about');
-});
+// Route::get('/about', function () {
+//     return view('about');
+// });
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
-Route::get('/register', function () {
-    return view('register');
-});
+// Route::get('/register', function () {
+//     return view('register');
+// });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
 Auth::routes();
 
 
