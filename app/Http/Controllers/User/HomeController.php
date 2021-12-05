@@ -15,6 +15,8 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // Careful if including more than one role, eg role:user,admin
+        // Don't put a space in between them, it will read it as part of the role's title
         $this->middleware('role:user');
     }
 

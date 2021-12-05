@@ -20,6 +20,8 @@ class AuthRole
         // Middleware should check current role on login, see if they have a role, let them continue to the right place if they do
 
         // Check if the request has a user object, check the role if so
+        // AuthorizeRoles method means we can pass one or many, it will handle it
+        // So we might use this middleware to check a range of roles such as admin, superuser, moderator, etc.
         if(!$request->user() || !$request->user()->authorizeRoles($roles)){
             // If user does not have passed in role, redirect to the 'home' route
             return redirect()->route('home');

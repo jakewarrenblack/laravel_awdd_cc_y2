@@ -38,7 +38,7 @@ class HomeController extends Controller
         $user = Auth::user();
 
         // Make sure the user's role is 'admin'
-        $user->authorizeRoles("admin");
+        $user->authorizeRoles('admin');
         return view("admin.home");
     }
 }

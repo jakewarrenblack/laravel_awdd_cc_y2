@@ -18,28 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [LoginController::class, 'login']);
-Route::get('/about', [LoginController::class, 'about']);
-Route::get('/register', [LoginController::class, 'register']);
-Route::get('/profile', [LoginController::class, 'profile']);
 
-
-
-// Route::get('/about', function () {
-//     return view('about');
-// });
-
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
-// Route::get('/register', function () {
-//     return view('register');
-// });
-
-// Route::get('/profile', function () {
-//     return view('profile');
-// });
 Auth::routes();
 
 
