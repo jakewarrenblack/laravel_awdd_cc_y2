@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\User\FestivalController as FestivalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,7 @@ Route::get('/user/home', [App\Http\Controllers\User\HomeController::class, 'inde
 // Controllers for our two static 'welcome' and 'about' pages
 Route::get('/', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+
+// Routes for view all festivals (index) and view festival by id (show)
+Route::get('/user/festivals/', [FestivalController::class, 'index'])->name('user.festivals.index');
+Route::get('/user/festivals/{id}', [FestivalController::class, 'show'])->name('user.festivals.show');
